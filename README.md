@@ -4,7 +4,7 @@
 
 Follow instructions at [https://sourceforge.net/projects/pysys/files//pysys/0.8.2/pysys-release.txt/view]
 
-I have version 1.2.0
+I have version 1.2.0. It uses python 2
 
 # Install elastic python driver
 
