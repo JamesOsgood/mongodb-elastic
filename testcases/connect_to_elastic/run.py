@@ -1,13 +1,13 @@
-from MongoDBElasticBaseTest import MongoDBElasticBaseTest
+from pysys.basetest import BaseTest as PysysBaseTest
 from elasticsearch import Elasticsearch
 
 import os
 from datetime import datetime
 
-class PySysTest(MongoDBElasticBaseTest):
+class PySysTest(PysysBaseTest):
 
 	def __init__ (self, descriptor, outsubdir, runner):
-		MongoDBElasticBaseTest.__init__(self, descriptor, outsubdir, runner)
+		PysysBaseTest.__init__(self, descriptor, outsubdir, runner)
 
 	def execute(self):
 		es = Elasticsearch()
@@ -17,11 +17,12 @@ class PySysTest(MongoDBElasticBaseTest):
 			'text': 'Elasticsearch: cool. bonsai cool.',
 			'timestamp': datetime.now(),
 		}
-		res = es.index(index="test-index", doc_type='tweet', id=1, body=doc)
-		print(res['result'])
+
+		# res = es.index(index="test-index", doc_type='tweet', id=1, body=doc)
+		# print(res['result'])
 
 		res = es.get(index="test-index", doc_type='tweet', id=1)
-		print(res['_source'])
+		self.log.info(res['_source'])
 
 		es.indices.refresh(index="test-index")
 
@@ -31,5 +32,5 @@ class PySysTest(MongoDBElasticBaseTest):
 			self.log.info("%(timestamp)s %(author)s: %(text)s" % hit["_source"])
 
 	def validate(self):
-		pass
+		self.assertGrep('run.log', expr='bonsai cool')
 

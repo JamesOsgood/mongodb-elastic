@@ -2,7 +2,7 @@
 <pysystest type="auto" state="runnable">
     
   <description> 
-    <title>Backup Vorte audio to S3</title>    
+    <title>Connect to Elastic</title>    
     <purpose><![CDATA[
 ]]>
     </purpose>
