@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../test-base/testing"
+		}
+	],
+	"settings": {
+		"python.linting.pylintEnabled": false,
+		"python.autoComplete.extraPaths" : ["../test-base/testing/src",
+			"./testcases/src"],
+			"files.exclude" : 
+		{ 
+			"**/*.pyc" : true 
+		},
+		"python.pythonPath": "/usr/local/bin/python2.7"
+	}
+}
