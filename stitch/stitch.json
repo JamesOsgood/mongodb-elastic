@@ -1,0 +1,11 @@
+{
+    "app_id": "mongodb-elastic-yignm",
+    "config_version": 20180301,
+    "name": "mongodb-elastic",
+    "location": "IE",
+    "deployment_model": "LOCAL",
+    "security": {},
+    "hosting": {
+        "enabled": false
+    }
+}

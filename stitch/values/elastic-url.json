@@ -1,0 +1,6 @@
+{
+    "id": "5c50522015e526c00680501f",
+    "name": "elastic-url",
+    "value": "http://ec2-18-130-189-112.eu-west-2.compute.amazonaws.com:9201/mongodb/_doc/",
+    "private": false
+}

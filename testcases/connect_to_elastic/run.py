@@ -10,7 +10,8 @@ class PySysTest(PysysBaseTest):
 		PysysBaseTest.__init__(self, descriptor, outsubdir, runner)
 
 	def execute(self):
-		es = Elasticsearch()
+		elastic_conn_str = [self.project.ELASTIC_URL]
+		es = Elasticsearch(elastic_conn_str)
 
 		doc = {
 			'author': 'kimchy',
@@ -18,16 +19,24 @@ class PySysTest(PysysBaseTest):
 			'timestamp': datetime.now(),
 		}
 
-		# res = es.index(index="test-index", doc_type='tweet', id=1, body=doc)
-		# print(res['result'])
+		index_name = 'mongosearch2'
+		doc_type = 'test'
+		doc_id = 14
 
-		res = es.get(index="test-index", doc_type='tweet', id=1)
+		es.indices.delete(index=index_name, ignore=[400, 404])
+		res = es.index(index=index_name, doc_type=doc_type, id=doc_id, body=doc, refresh=True)
+		self.log.info(res['result'])
+
+		res = es.index(index=index_name, doc_type=doc_type, id=doc_id + 1, body=doc, refresh=True)
+		self.log.info(res['result'])
+
+		res = es.get(index=index_name, doc_type=doc_type, id=doc_id)
 		self.log.info(res['_source'])
 
-		es.indices.refresh(index="test-index")
+		es.indices.refresh(index=index_name)
 
-		res = es.search(index="test-index", body={"query": {"match_all": {}}})
-		print("Got %d Hits:" % res['hits']['total'])
+		res = es.search(index=index_name, body={"query": {"match_all": {}}})
+		self.log.info("Got %d Hits:" % res['hits']['total'])
 		for hit in res['hits']['hits']:
 			self.log.info("%(timestamp)s %(author)s: %(text)s" % hit["_source"])
 

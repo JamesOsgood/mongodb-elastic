@@ -1,0 +1,18 @@
+{
+    "id": "5c504d0315e526c0067f483a",
+    "name": "sync_to_elastic",
+    "type": "DATABASE",
+    "config": {
+        "operation_types": [
+            "INSERT"
+        ],
+        "database": "elastic",
+        "collection": "test_coll",
+        "service_name": "mongodb-atlas",
+        "match": {},
+        "full_document": false,
+        "unordered": false
+    },
+    "function_name": "update_elastic",
+    "disabled": false
+}

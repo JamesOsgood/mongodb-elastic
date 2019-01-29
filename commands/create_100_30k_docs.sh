@@ -1,0 +1,1 @@
+java -jar /Users/james/code/github/POCDriver/bin/POCDriver.jar -c "mongodb+srv://elastic:4tXOtmfS0fYF2hqm@rpi-sensor-data-ifxxs.mongodb.net/elastic?retryWrites=true" -t 2 -o stats.out -d 10 -i 100 -f 1100 -e -n "elastic.test_coll"

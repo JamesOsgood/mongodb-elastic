@@ -1,3 +1,4 @@
 *.pyc
 Output/
 .DS_Store
+node_modules/

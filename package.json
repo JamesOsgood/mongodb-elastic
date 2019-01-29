@@ -1,0 +1,22 @@
+{
+  "name": "mongodb-elastic",
+  "version": "1.0.0",
+  "description": "# Install Pysys",
+  "main": "index.js",
+  "scripts": {
+    "update": "rm -rf stitch && stitch-cli export --app-id=mongodb-elastic-yignm --output=stitch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JamesOsgood/mongodb-elastic.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JamesOsgood/mongodb-elastic/issues"
+  },
+  "homepage": "https://github.com/JamesOsgood/mongodb-elastic#readme",
+  "dependencies": {
+    "mongodb-stitch-cli": "^1.2.1"
+  }
+}
